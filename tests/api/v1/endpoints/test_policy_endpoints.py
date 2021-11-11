@@ -65,7 +65,7 @@ class TestGetPolicies:
         assert len(policy_data["rules"]) == 1
 
         rule = policy_data["rules"][0]
-        assert rule["key"] == "access-request-rule"
+        assert rule["key"] == "access_request_rule"
         assert rule["action_type"] == "access"
         assert rule["storage_destination"]["type"] == "s3"
 
@@ -117,7 +117,7 @@ class TestGetPolicyDetail:
         assert len(data["rules"]) == 1
 
         rule = data["rules"][0]
-        assert rule["key"] == "access-request-rule"
+        assert rule["key"] == "access_request_rule"
         assert rule["action_type"] == "access"
         assert rule["storage_destination"]["type"] == "s3"
 
@@ -149,7 +149,7 @@ class TestGetPolicyDetail:
         assert len(policy_data["rules"]) == 1
 
         rule = policy_data["rules"][0]
-        assert rule["key"] == "access-request-rule"
+        assert rule["key"] == "access_request_rule"
         assert rule["action_type"] == "access"
         assert rule["storage_destination"]["type"] == "s3"
 
@@ -292,7 +292,7 @@ class TestCreatePolicies:
         generate_auth_header,
         storage_config,
     ):
-        key = "here-is-a-key"
+        key = "here_is_a_key"
         data = [
             {
                 "name": "test create policy api",
@@ -356,7 +356,7 @@ class TestCreateRules:
         self, url, api_client: TestClient, generate_auth_header, policy, storage_config
     ):
         auth_header = generate_auth_header(scopes=[scopes.RULE_CREATE_OR_UPDATE])
-        url = V1_URL_PREFIX + RULE_CREATE_URI.format(policy_key="bad-key")
+        url = V1_URL_PREFIX + RULE_CREATE_URI.format(policy_key="bad_key")
 
         data = [
             {
@@ -494,7 +494,7 @@ class TestCreateRules:
             db=db,
             data={
                 "name": "Second Access Request policy",
-                "key": "second-access-request-policy",
+                "key": "second_access_request_policy",
                 "client_id": oauth_client.id,
             },
         )
@@ -558,7 +558,7 @@ class TestDeleteRule:
         rule = policy.rules[0]
 
         url = V1_URL_PREFIX + RULE_DETAIL_URI.format(
-            policy_key="bad-policy",
+            policy_key="bad_policy",
             rule_key=rule.key,
         )
 
@@ -571,7 +571,7 @@ class TestDeleteRule:
     ):
         url = V1_URL_PREFIX + RULE_DETAIL_URI.format(
             policy_key=policy.key,
-            rule_key="bad-rule",
+            rule_key="bad_rule",
         )
 
         auth_header = generate_auth_header(scopes=[scopes.RULE_DELETE])
@@ -643,12 +643,12 @@ class TestRuleTargets:
             {
                 "data_category": data_category,
                 "name": "this-is-a-test",
-                "key": "this-is-a-test",
+                "key": "this_is_a_test",
             },
             {
                 "data_category": data_category,
                 "name": "this-is-another-test",
-                "key": "this-is-another-test",
+                "key": "this_is_another_test",
             },
         ]
         auth_header = generate_auth_header(scopes=[scopes.RULE_CREATE_OR_UPDATE])

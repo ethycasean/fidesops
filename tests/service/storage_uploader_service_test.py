@@ -37,7 +37,7 @@ def test_uploader_s3_success(
 
     mock_config = {
         "name": "test dest",
-        "key": "test dest key",
+        "key": "test_dest_key",
         "type": StorageType.s3.value,
         "details": {
             "bucket": "some-bucket",
@@ -81,7 +81,7 @@ def test_uploader_s3_invalid_file_naming(mock_upload_to_s3: Mock, db: Session) -
 
     mock_config = {
         "name": "test dest",
-        "key": "test dest key",
+        "key": "test_dest_key",
         "type": StorageType.s3.value,
         "details": {
             "bucket": "some-bucket",
@@ -113,7 +113,7 @@ def test_uploader_s3_invalid_file_naming(mock_upload_to_s3: Mock, db: Session) -
 @mock.patch("fidesops.service.storage.storage_uploader_service.upload_to_s3")
 def test_uploader_no_config(mock_upload_to_s3: Mock, db: Session) -> None:
     request_id = "214513r"
-    storage_key = "s3 key"
+    storage_key = "s3_key"
 
     upload_data = {"phone": "1231231234"}
 
@@ -135,7 +135,7 @@ def test_uploader_onetrust_success(
 
     mock_config = {
         "name": "test dest",
-        "key": "test dest onetrust",
+        "key": "test_dest_onetrust",
         "type": StorageType.onetrust.value,
         "details": {StorageDetails.SERVICE_NAME.value: "Strawberry Fever IO"},
         "secrets": {
@@ -192,7 +192,7 @@ def test_uploader_onetrust_request_details_not_found(
 
     mock_config = {
         "name": "test dest",
-        "key": "test dest onetrust",
+        "key": "test_dest_onetrust",
         "type": StorageType.onetrust.value,
         "details": {StorageDetails.SERVICE_NAME.value: "Strawberry Fever IO"},
         "secrets": {
@@ -232,7 +232,7 @@ def test_uploader_local_success(
 
     mock_config = {
         "name": "test dest",
-        "key": "test dest local",
+        "key": "test_dest_local",
         "type": StorageType.local.value,
         "details": {
             StorageDetails.NAMING.value: FileNaming.request_id.value,

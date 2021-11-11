@@ -260,7 +260,7 @@ def test_filter_on_data_categories(
         db,
         data={
             "name": "Test Rule 1",
-            "key": "test-rule-1",
+            "key": "test_rule_1",
             "data_category": "user.provided.identifiable.contact.street",
             "rule_id": rule.id,
         },
@@ -328,7 +328,7 @@ def test_filter_on_data_categories(
         db,
         data={
             "name": "Test Rule 2",
-            "key": "test-rule-2",
+            "key": "test_rule_2",
             "data_category": "user.provided.identifiable.contact.email",
             "rule_id": rule.id,
         },
@@ -338,7 +338,7 @@ def test_filter_on_data_categories(
         db,
         data={
             "name": "Test Rule 3",
-            "key": "test-rule-3",
+            "key": "test_rule_3",
             "data_category": "user.provided.identifiable.contact.state",
             "rule_id": rule.id,
         },
