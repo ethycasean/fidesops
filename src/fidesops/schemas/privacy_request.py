@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import List, Optional, Dict
 
+from fideslang.validation import FidesKey
 from pydantic import Field
 
 from fidesops.models.policy import ActionType
@@ -18,7 +19,7 @@ class PrivacyRequestCreate(BaseSchema):
     finished_processing_at: Optional[datetime]
     requested_at: datetime
     identities: List[PrivacyRequestIdentity]
-    policy_key: str
+    policy_key: FidesKey
 
 
 class FieldsAffectedResponse(BaseSchema):

@@ -4,6 +4,8 @@ import os
 from datetime import datetime
 from typing import Any, Optional, Dict
 
+from fideslang.validation import FidesKey
+
 from fidesops.models.privacy_request import PrivacyRequest
 from fidesops.schemas.storage.storage import (
     StorageType,
@@ -23,7 +25,7 @@ logger = logging.getLogger(__name__)
 LOCAL_FIDES_UPLOAD_DIRECTORY = "fides_uploads"
 
 
-def upload(db: Session, *, request_id: str, data: Dict, storage_key: str) -> str:
+def upload(db: Session, *, request_id: str, data: Dict, storage_key: FidesKey) -> str:
     """Retrieves storage configs and calls appropriate upload method"""
     config: Optional[StorageConfig] = StorageConfig.get_by(
         db=db, field="key", value=storage_key
